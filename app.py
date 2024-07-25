@@ -73,7 +73,7 @@ if uploaded_file is not None:
     prefix = 'kaggle/input/fashion-product-images-small/images/'
 
     # Remove the prefix and create new paths
-    updated_paths = [path.replace(prefix, 'fr/images/') for path in original_paths]
+    updated_paths = [path.replace(prefix, 'fr/images') for path in original_paths]
 
     # Print the updated paths to verify
     st.write(updated_paths)
