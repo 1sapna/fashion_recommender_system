@@ -8,10 +8,14 @@ from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input
 from sklearn.neighbors import NearestNeighbors
 from numpy.linalg import norm
 from PIL import Image
+import os
 
 # Load feature list and filenames
 feature_list = np.array(pickle.load(open('Images_features.pkl', 'rb')))
 filenames = pickle.load(open('filenames.pkl', 'rb'))
+
+# Modify filenames to remove the initial part of the path
+filenames = [os.path.join('images', os.path.basename(f)) for f in filenames]
 
 # Load ResNet50 model
 base_model = ResNet50(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
@@ -56,8 +60,26 @@ if uploaded_file is not None:
     # Perform recommendation based on extracted features
     indices = recommend(features, feature_list)
 
-    # Display recommended images horizontally
+    # Initialize the list to store original paths
+    original_paths = []
+
+    # Create columns for displaying images
     cols = st.columns(5)
     for i in range(5):
         with cols[i]:
-            st.image(filenames[indices[0][i + 1]])
+            original_paths.append(filenames[indices[0][i + 1]])
+
+    # Define the prefix to remove
+    prefix = 'kaggle/input/fashion-product-images-small/images/'
+
+    # Remove the prefix and create new paths
+    updated_paths = [path.replace(prefix, 'fr/images/') for path in original_paths]
+
+    # Print the updated paths to verify
+    st.write(updated_paths)
+
+    # Display the updated images
+    cols = st.columns(5)
+    for i in range(5):
+        with cols[i]:
+            st.image(updated_paths[i])
