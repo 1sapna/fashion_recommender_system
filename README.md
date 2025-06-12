@@ -72,5 +72,6 @@ See 5 most similar fashion items displayed
 
 ## 📸 Sample Output
 
- ![Input](pic.jpg)
-   
+ ![Home](home.jpg)
+ ![Input](input.jpg)
+ ![Output](output.jpg)
