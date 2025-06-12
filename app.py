@@ -54,7 +54,7 @@ uploaded_file = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
     # Display the uploaded image
     display_image = Image.open(uploaded_file)
-    st.image(display_image, caption='Uploaded Image', use_column_width=True)
+    st.image(display_image, caption='Uploaded Image', use_container_width=True)
     
     # Extract features from uploaded image
     features = feature_extraction(uploaded_file, model)
@@ -85,7 +85,7 @@ if uploaded_file is not None:
     cols = st.columns(5)
     for i in range(5):
         with cols[i]:
-            st.image(updated_paths[i], caption=f'Similar Item {i+1}', use_column_width=True)
+            st.image(updated_paths[i], caption=f'Similar Item {i+1}',use_container_width=True)
 
 st.sidebar.title("About")
 st.sidebar.info("""
