@@ -20,13 +20,16 @@ This is an image-based fashion recommendation system that helps users find visua
 ## 📁 Project Structure
 
 ```
-fashion-recommender/
-├── data/ # Image dataset
-├── embeddings/ # Saved embeddings of dataset images
-├── app.py # Streamlit web app
-├── feature_extractor.py # CNN model and embedding functions
-├── helper.py # Utility functions
-├── requirements.txt # Python dependencies
+├── app.py # Main Streamlit app
+├── fashion-recommender.ipynb # Notebook used for feature extraction & development
+├── Image_features.pkl # Precomputed image feature vectors
+├── filenames.pkl # Corresponding filenames for feature vectors
+├── requirements.txt # Python package dependencies
+├── .gitattributes # GitHub attributes file (optional)
+├── images/ # Folder containing all fashion item images
+│ ├── 0001.jpg
+│ ├── 0002.jpg
+│ └── ...
 └── README.md
 
 ```
